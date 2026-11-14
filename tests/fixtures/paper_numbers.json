@@ -1,0 +1,1988 @@
+{
+  "Table 2": {
+    "document": "paper.pdf",
+    "page": 11,
+    "columns": [
+      "Model",
+      "F1",
+      "MCC",
+      "AP",
+      "Brier"
+    ],
+    "rows": [
+      [
+        "Neural, one-hot 4 channels",
+        {
+          "table": "Table 2",
+          "value": 0.979
+        },
+        {
+          "table": "Table 2",
+          "value": 0.958
+        },
+        {
+          "table": "Table 2",
+          "value": 0.998
+        },
+        {
+          "table": "Table 2",
+          "value": 0.016
+        }
+      ],
+      [
+        "Neural, one-hot and density, 5 channels",
+        {
+          "table": "Table 2",
+          "value": 0.98
+        },
+        {
+          "table": "Table 2",
+          "value": 0.96
+        },
+        {
+          "table": "Table 2",
+          "value": 0.998
+        },
+        {
+          "table": "Table 2",
+          "value": 0.016
+        }
+      ],
+      [
+        "Neural, combined 8 channels",
+        {
+          "table": "Table 2",
+          "value": 0.979
+        },
+        {
+          "table": "Table 2",
+          "value": 0.959
+        },
+        {
+          "table": "Table 2",
+          "value": 0.998
+        },
+        {
+          "table": "Table 2",
+          "value": 0.016
+        }
+      ],
+      [
+        "Compact LightGBM, 82 features",
+        {
+          "table": "Table 2",
+          "value": 0.979
+        },
+        {
+          "table": "Table 2",
+          "value": 0.958
+        },
+        {
+          "table": "Table 2",
+          "value": 0.998
+        },
+        {
+          "table": "Table 2",
+          "value": null
+        }
+      ],
+      [
+        "Gardiner-Garden, fixed 200 bp composition rule",
+        {
+          "table": "Table 2",
+          "value": 0.922
+        },
+        {
+          "table": "Table 2",
+          "value": 0.859
+        },
+        {
+          "table": "Table 2",
+          "value": null
+        },
+        {
+          "table": "Table 2",
+          "value": null
+        }
+      ],
+      [
+        "Takai-Jones, fixed 200 bp composition rule",
+        {
+          "table": "Table 2",
+          "value": 0.882
+        },
+        {
+          "table": "Table 2",
+          "value": 0.805
+        },
+        {
+          "table": "Table 2",
+          "value": null
+        },
+        {
+          "table": "Table 2",
+          "value": null
+        }
+      ]
+    ]
+  },
+  "Table 3": {
+    "document": "paper.pdf",
+    "page": 11,
+    "columns": [
+      "Model",
+      "Strict F1",
+      "Loose F1",
+      "Loose recall"
+    ],
+    "rows": [
+      [
+        "Neural detector",
+        {
+          "table": "Table 3",
+          "value": 0.723
+        },
+        {
+          "table": "Table 3",
+          "value": 0.813
+        },
+        {
+          "table": "Table 3",
+          "value": 0.886
+        }
+      ],
+      [
+        "Compact LightGBM",
+        {
+          "table": "Table 3",
+          "value": 0.732
+        },
+        {
+          "table": "Table 3",
+          "value": 0.82
+        },
+        {
+          "table": "Table 3",
+          "value": 0.877
+        }
+      ]
+    ],
+    "settings": {
+      "window": {
+        "table": "Table 3",
+        "value": 200
+      },
+      "stride": {
+        "table": "Table 3",
+        "value": 50
+      },
+      "geometry": {
+        "table": "Table 3",
+        "value": "center"
+      },
+      "threshold": {
+        "table": "Table 3",
+        "value": 0.99
+      },
+      "min_region_length": {
+        "table": "Table 3",
+        "value": 150
+      },
+      "merge_gap": {
+        "table": "Table 3",
+        "value": 100
+      }
+    },
+    "preliminary": [
+      {
+        "geometry": "Span",
+        "strict_f1": {
+          "table": "Table 3",
+          "value": 0.645
+        },
+        "loose_f1": {
+          "table": "Table 3",
+          "value": 0.808
+        },
+        "loose_recall": {
+          "table": "Table 3",
+          "value": 0.909
+        },
+        "median_iou": {
+          "table": "Table 3",
+          "value": 0.685
+        }
+      },
+      {
+        "geometry": "Centre",
+        "strict_f1": {
+          "table": "Table 3",
+          "value": 0.672
+        },
+        "loose_f1": {
+          "table": "Table 3",
+          "value": 0.789
+        },
+        "loose_recall": {
+          "table": "Table 3",
+          "value": 0.755
+        },
+        "median_iou": {
+          "table": "Table 3",
+          "value": 0.835
+        }
+      },
+      {
+        "geometry": "Offset",
+        "strict_f1": {
+          "table": "Table 3",
+          "value": 0.668
+        },
+        "loose_f1": {
+          "table": "Table 3",
+          "value": 0.784
+        },
+        "loose_recall": {
+          "table": "Table 3",
+          "value": 0.725
+        },
+        "median_iou": {
+          "table": "Table 3",
+          "value": 0.836
+        }
+      }
+    ],
+    "preliminary_settings": {
+      "threshold": {
+        "table": "Table 3",
+        "value": 0.97
+      },
+      "min_length": {
+        "table": "Table 3",
+        "value": 400
+      }
+    }
+  },
+  "Table 5": {
+    "document": "paper.pdf",
+    "page": 13,
+    "columns": [
+      "Method",
+      "Strict P",
+      "Strict R",
+      "Strict F1",
+      "Loose P",
+      "Loose R",
+      "Loose F1"
+    ],
+    "rows": [
+      [
+        "Compact LightGBM",
+        {
+          "table": "Table 5",
+          "value": 0.68
+        },
+        {
+          "table": "Table 5",
+          "value": 0.77
+        },
+        {
+          "table": "Table 5",
+          "value": 0.722
+        },
+        {
+          "table": "Table 5",
+          "value": 0.772
+        },
+        {
+          "table": "Table 5",
+          "value": 0.875
+        },
+        {
+          "table": "Table 5",
+          "value": 0.82
+        }
+      ],
+      [
+        "Neural detector",
+        {
+          "table": "Table 5",
+          "value": 0.651
+        },
+        {
+          "table": "Table 5",
+          "value": 0.785
+        },
+        {
+          "table": "Table 5",
+          "value": 0.712
+        },
+        {
+          "table": "Table 5",
+          "value": 0.742
+        },
+        {
+          "table": "Table 5",
+          "value": 0.895
+        },
+        {
+          "table": "Table 5",
+          "value": 0.811
+        }
+      ],
+      [
+        "Takai-Jones, tuned compositional rule",
+        {
+          "table": "Table 5",
+          "value": 0.608
+        },
+        {
+          "table": "Table 5",
+          "value": 0.711
+        },
+        {
+          "table": "Table 5",
+          "value": 0.656
+        },
+        {
+          "table": "Table 5",
+          "value": 0.723
+        },
+        {
+          "table": "Table 5",
+          "value": 0.845
+        },
+        {
+          "table": "Table 5",
+          "value": 0.779
+        }
+      ],
+      [
+        "Gardiner-Garden, tuned compositional rule",
+        {
+          "table": "Table 5",
+          "value": 0.523
+        },
+        {
+          "table": "Table 5",
+          "value": 0.695
+        },
+        {
+          "table": "Table 5",
+          "value": 0.597
+        },
+        {
+          "table": "Table 5",
+          "value": 0.627
+        },
+        {
+          "table": "Table 5",
+          "value": 0.834
+        },
+        {
+          "table": "Table 5",
+          "value": 0.716
+        }
+      ],
+      [
+        "Takai-Jones, published thresholds",
+        {
+          "table": "Table 5",
+          "value": 0.642
+        },
+        {
+          "table": "Table 5",
+          "value": 0.549
+        },
+        {
+          "table": "Table 5",
+          "value": 0.592
+        },
+        {
+          "table": "Table 5",
+          "value": 0.779
+        },
+        {
+          "table": "Table 5",
+          "value": 0.667
+        },
+        {
+          "table": "Table 5",
+          "value": 0.719
+        }
+      ],
+      [
+        "In-house Gaussian HMM, fully-inside labels",
+        {
+          "table": "Table 5",
+          "value": 0.34
+        },
+        {
+          "table": "Table 5",
+          "value": 0.544
+        },
+        {
+          "table": "Table 5",
+          "value": 0.418
+        },
+        {
+          "table": "Table 5",
+          "value": 0.533
+        },
+        {
+          "table": "Table 5",
+          "value": 0.854
+        },
+        {
+          "table": "Table 5",
+          "value": 0.656
+        }
+      ],
+      [
+        "In-house Gaussian HMM, centre labels",
+        {
+          "table": "Table 5",
+          "value": 0.295
+        },
+        {
+          "table": "Table 5",
+          "value": 0.513
+        },
+        {
+          "table": "Table 5",
+          "value": 0.375
+        },
+        {
+          "table": "Table 5",
+          "value": 0.494
+        },
+        {
+          "table": "Table 5",
+          "value": 0.858
+        },
+        {
+          "table": "Table 5",
+          "value": 0.627
+        }
+      ],
+      [
+        "In-house distance clustering",
+        {
+          "table": "Table 5",
+          "value": 0.282
+        },
+        {
+          "table": "Table 5",
+          "value": 0.387
+        },
+        {
+          "table": "Table 5",
+          "value": 0.326
+        },
+        {
+          "table": "Table 5",
+          "value": 0.474
+        },
+        {
+          "table": "Table 5",
+          "value": 0.65
+        },
+        {
+          "table": "Table 5",
+          "value": 0.548
+        }
+      ],
+      [
+        "Gardiner-Garden, published thresholdsa",
+        {
+          "table": "Table 5",
+          "value": 0.1
+        },
+        {
+          "table": "Table 5",
+          "value": 0.711
+        },
+        {
+          "table": "Table 5",
+          "value": 0.176
+        },
+        {
+          "table": "Table 5",
+          "value": 0.136
+        },
+        {
+          "table": "Table 5",
+          "value": 0.962
+        },
+        {
+          "table": "Table 5",
+          "value": 0.238
+        }
+      ]
+    ]
+  },
+  "Table 6": {
+    "document": "paper.pdf",
+    "page": 13,
+    "columns": [
+      "Overlap",
+      "Neural TP",
+      "Neural FP",
+      "Neural FN",
+      "Neural F1",
+      "Compact TP",
+      "Compact FP",
+      "Compact FN",
+      "Compact F1"
+    ],
+    "rows": [
+      [
+        "IoU ≥ 0.50",
+        {
+          "table": "Table 6",
+          "value": 3552
+        },
+        {
+          "table": "Table 6",
+          "value": 1907
+        },
+        {
+          "table": "Table 6",
+          "value": 970
+        },
+        {
+          "table": "Table 6",
+          "value": 0.712
+        },
+        {
+          "table": "Table 6",
+          "value": 3483
+        },
+        {
+          "table": "Table 6",
+          "value": 1638
+        },
+        {
+          "table": "Table 6",
+          "value": 1039
+        },
+        {
+          "table": "Table 6",
+          "value": 0.722
+        }
+      ],
+      [
+        "Any overlap",
+        {
+          "table": "Table 6",
+          "value": 4049
+        },
+        {
+          "table": "Table 6",
+          "value": 1410
+        },
+        {
+          "table": "Table 6",
+          "value": 473
+        },
+        {
+          "table": "Table 6",
+          "value": 0.811
+        },
+        {
+          "table": "Table 6",
+          "value": 3955
+        },
+        {
+          "table": "Table 6",
+          "value": 1166
+        },
+        {
+          "table": "Table 6",
+          "value": 567
+        },
+        {
+          "table": "Table 6",
+          "value": 0.82
+        }
+      ],
+      [
+        "IoU ≥ 0.75",
+        {
+          "table": "Table 6",
+          "value": 2425
+        },
+        {
+          "table": "Table 6",
+          "value": 3034
+        },
+        {
+          "table": "Table 6",
+          "value": 2097
+        },
+        {
+          "table": "Table 6",
+          "value": 0.486
+        },
+        {
+          "table": "Table 6",
+          "value": 2372
+        },
+        {
+          "table": "Table 6",
+          "value": 2749
+        },
+        {
+          "table": "Table 6",
+          "value": 2150
+        },
+        {
+          "table": "Table 6",
+          "value": 0.492
+        }
+      ]
+    ]
+  },
+  "Table S6": {
+    "document": "supplementary.pdf",
+    "page": 4,
+    "columns": [
+      "Overlap",
+      "Neural TP",
+      "Neural FP",
+      "Neural FN",
+      "Neural F1",
+      "Compact TP",
+      "Compact FP",
+      "Compact FN",
+      "Compact F1"
+    ],
+    "rows": [
+      [
+        "IoU ≥ 0.50",
+        {
+          "table": "Table S6",
+          "value": 3552
+        },
+        {
+          "table": "Table S6",
+          "value": 1907
+        },
+        {
+          "table": "Table S6",
+          "value": 970
+        },
+        {
+          "table": "Table S6",
+          "value": 0.712
+        },
+        {
+          "table": "Table S6",
+          "value": 3483
+        },
+        {
+          "table": "Table S6",
+          "value": 1638
+        },
+        {
+          "table": "Table S6",
+          "value": 1039
+        },
+        {
+          "table": "Table S6",
+          "value": 0.722
+        }
+      ],
+      [
+        "Any overlap",
+        {
+          "table": "Table S6",
+          "value": 4049
+        },
+        {
+          "table": "Table S6",
+          "value": 1410
+        },
+        {
+          "table": "Table S6",
+          "value": 473
+        },
+        {
+          "table": "Table S6",
+          "value": 0.811
+        },
+        {
+          "table": "Table S6",
+          "value": 3955
+        },
+        {
+          "table": "Table S6",
+          "value": 1166
+        },
+        {
+          "table": "Table S6",
+          "value": 567
+        },
+        {
+          "table": "Table S6",
+          "value": 0.82
+        }
+      ],
+      [
+        "IoU ≥ 0.10",
+        {
+          "table": "Table S6",
+          "value": 4047
+        },
+        {
+          "table": "Table S6",
+          "value": 1412
+        },
+        {
+          "table": "Table S6",
+          "value": 475
+        },
+        {
+          "table": "Table S6",
+          "value": 0.811
+        },
+        {
+          "table": "Table S6",
+          "value": 3953
+        },
+        {
+          "table": "Table S6",
+          "value": 1168
+        },
+        {
+          "table": "Table S6",
+          "value": 569
+        },
+        {
+          "table": "Table S6",
+          "value": 0.82
+        }
+      ],
+      [
+        "IoU ≥ 0.25",
+        {
+          "table": "Table S6",
+          "value": 3973
+        },
+        {
+          "table": "Table S6",
+          "value": 1486
+        },
+        {
+          "table": "Table S6",
+          "value": 549
+        },
+        {
+          "table": "Table S6",
+          "value": 0.796
+        },
+        {
+          "table": "Table S6",
+          "value": 3875
+        },
+        {
+          "table": "Table S6",
+          "value": 1246
+        },
+        {
+          "table": "Table S6",
+          "value": 647
+        },
+        {
+          "table": "Table S6",
+          "value": 0.804
+        }
+      ],
+      [
+        "IoU ≥ 0.75",
+        {
+          "table": "Table S6",
+          "value": 2425
+        },
+        {
+          "table": "Table S6",
+          "value": 3034
+        },
+        {
+          "table": "Table S6",
+          "value": 2097
+        },
+        {
+          "table": "Table S6",
+          "value": 0.486
+        },
+        {
+          "table": "Table S6",
+          "value": 2372
+        },
+        {
+          "table": "Table S6",
+          "value": 2749
+        },
+        {
+          "table": "Table S6",
+          "value": 2150
+        },
+        {
+          "table": "Table S6",
+          "value": 0.492
+        }
+      ]
+    ]
+  },
+  "Table 7": {
+    "document": "paper.pdf",
+    "page": 14,
+    "columns": [
+      "Matching",
+      "Chromosome",
+      "Islands",
+      "Neural P",
+      "Neural R",
+      "Neural F1",
+      "Compact P",
+      "Compact R",
+      "Compact F1"
+    ],
+    "rows": [
+      [
+        "Strict",
+        "chr19",
+        {
+          "table": "Table 7",
+          "value": 2492
+        },
+        {
+          "table": "Table 7",
+          "value": 0.648
+        },
+        {
+          "table": "Table 7",
+          "value": 0.779
+        },
+        {
+          "table": "Table 7",
+          "value": 0.708
+        },
+        {
+          "table": "Table 7",
+          "value": 0.676
+        },
+        {
+          "table": "Table 7",
+          "value": 0.768
+        },
+        {
+          "table": "Table 7",
+          "value": 0.719
+        }
+      ],
+      [
+        "Loose",
+        "chr19",
+        {
+          "table": "Table 7",
+          "value": 2492
+        },
+        {
+          "table": "Table 7",
+          "value": 0.754
+        },
+        {
+          "table": "Table 7",
+          "value": 0.907
+        },
+        {
+          "table": "Table 7",
+          "value": 0.824
+        },
+        {
+          "table": "Table 7",
+          "value": 0.781
+        },
+        {
+          "table": "Table 7",
+          "value": 0.888
+        },
+        {
+          "table": "Table 7",
+          "value": 0.831
+        }
+      ],
+      [
+        "Strict",
+        "chr20",
+        {
+          "table": "Table 7",
+          "value": 847
+        },
+        {
+          "table": "Table 7",
+          "value": 0.679
+        },
+        {
+          "table": "Table 7",
+          "value": 0.796
+        },
+        {
+          "table": "Table 7",
+          "value": 0.733
+        },
+        {
+          "table": "Table 7",
+          "value": 0.699
+        },
+        {
+          "table": "Table 7",
+          "value": 0.783
+        },
+        {
+          "table": "Table 7",
+          "value": 0.739
+        }
+      ],
+      [
+        "Loose",
+        "chr20",
+        {
+          "table": "Table 7",
+          "value": 847
+        },
+        {
+          "table": "Table 7",
+          "value": 0.756
+        },
+        {
+          "table": "Table 7",
+          "value": 0.887
+        },
+        {
+          "table": "Table 7",
+          "value": 0.816
+        },
+        {
+          "table": "Table 7",
+          "value": 0.777
+        },
+        {
+          "table": "Table 7",
+          "value": 0.87
+        },
+        {
+          "table": "Table 7",
+          "value": 0.821
+        }
+      ],
+      [
+        "Strict",
+        "chr21",
+        {
+          "table": "Table 7",
+          "value": 446
+        },
+        {
+          "table": "Table 7",
+          "value": 0.552
+        },
+        {
+          "table": "Table 7",
+          "value": 0.729
+        },
+        {
+          "table": "Table 7",
+          "value": 0.628
+        },
+        {
+          "table": "Table 7",
+          "value": 0.603
+        },
+        {
+          "table": "Table 7",
+          "value": 0.709
+        },
+        {
+          "table": "Table 7",
+          "value": 0.652
+        }
+      ],
+      [
+        "Loose",
+        "chr21",
+        {
+          "table": "Table 7",
+          "value": 446
+        },
+        {
+          "table": "Table 7",
+          "value": 0.633
+        },
+        {
+          "table": "Table 7",
+          "value": 0.836
+        },
+        {
+          "table": "Table 7",
+          "value": 0.721
+        },
+        {
+          "table": "Table 7",
+          "value": 0.691
+        },
+        {
+          "table": "Table 7",
+          "value": 0.812
+        },
+        {
+          "table": "Table 7",
+          "value": 0.746
+        }
+      ],
+      [
+        "Strict",
+        "chr22",
+        {
+          "table": "Table 7",
+          "value": 737
+        },
+        {
+          "table": "Table 7",
+          "value": 0.694
+        },
+        {
+          "table": "Table 7",
+          "value": 0.829
+        },
+        {
+          "table": "Table 7",
+          "value": 0.755
+        },
+        {
+          "table": "Table 7",
+          "value": 0.723
+        },
+        {
+          "table": "Table 7",
+          "value": 0.799
+        },
+        {
+          "table": "Table 7",
+          "value": 0.759
+        }
+      ],
+      [
+        "Loose",
+        "chr22",
+        {
+          "table": "Table 7",
+          "value": 737
+        },
+        {
+          "table": "Table 7",
+          "value": 0.755
+        },
+        {
+          "table": "Table 7",
+          "value": 0.902
+        },
+        {
+          "table": "Table 7",
+          "value": 0.822
+        },
+        {
+          "table": "Table 7",
+          "value": 0.788
+        },
+        {
+          "table": "Table 7",
+          "value": 0.871
+        },
+        {
+          "table": "Table 7",
+          "value": 0.827
+        }
+      ],
+      [
+        "Strict",
+        "Macro",
+        {
+          "table": "Table 7",
+          "value": null
+        },
+        {
+          "table": "Table 7",
+          "value": 0.643
+        },
+        {
+          "table": "Table 7",
+          "value": 0.783
+        },
+        {
+          "table": "Table 7",
+          "value": 0.706
+        },
+        {
+          "table": "Table 7",
+          "value": 0.675
+        },
+        {
+          "table": "Table 7",
+          "value": 0.765
+        },
+        {
+          "table": "Table 7",
+          "value": 0.717
+        }
+      ],
+      [
+        "Loose",
+        "Macro",
+        {
+          "table": "Table 7",
+          "value": null
+        },
+        {
+          "table": "Table 7",
+          "value": 0.725
+        },
+        {
+          "table": "Table 7",
+          "value": 0.883
+        },
+        {
+          "table": "Table 7",
+          "value": 0.796
+        },
+        {
+          "table": "Table 7",
+          "value": 0.759
+        },
+        {
+          "table": "Table 7",
+          "value": 0.86
+        },
+        {
+          "table": "Table 7",
+          "value": 0.807
+        }
+      ],
+      [
+        "Strict",
+        "Pooled",
+        {
+          "table": "Table 7",
+          "value": 4522
+        },
+        {
+          "table": "Table 7",
+          "value": 0.651
+        },
+        {
+          "table": "Table 7",
+          "value": 0.785
+        },
+        {
+          "table": "Table 7",
+          "value": 0.712
+        },
+        {
+          "table": "Table 7",
+          "value": 0.68
+        },
+        {
+          "table": "Table 7",
+          "value": 0.77
+        },
+        {
+          "table": "Table 7",
+          "value": 0.722
+        }
+      ],
+      [
+        "Loose",
+        "Pooled",
+        {
+          "table": "Table 7",
+          "value": 4522
+        },
+        {
+          "table": "Table 7",
+          "value": 0.742
+        },
+        {
+          "table": "Table 7",
+          "value": 0.895
+        },
+        {
+          "table": "Table 7",
+          "value": 0.811
+        },
+        {
+          "table": "Table 7",
+          "value": 0.772
+        },
+        {
+          "table": "Table 7",
+          "value": 0.875
+        },
+        {
+          "table": "Table 7",
+          "value": 0.82
+        }
+      ]
+    ]
+  },
+  "Table 8": {
+    "document": "paper.pdf",
+    "page": 14,
+    "columns": [
+      "Quantity",
+      "Value"
+    ],
+    "rows": [
+      [
+        "Matched prediction–reference pairs",
+        {
+          "table": "Table 8",
+          "value": 4049
+        }
+      ],
+      [
+        "Median signed start error",
+        {
+          "table": "Table 8",
+          "value": 10
+        }
+      ],
+      [
+        "Median signed end error",
+        {
+          "table": "Table 8",
+          "value": -6
+        }
+      ],
+      [
+        "Median absolute error at each end",
+        {
+          "table": "Table 8",
+          "value": 47
+        }
+      ]
+    ],
+    "adjacent_text": {
+      "tolerance": {
+        "table": "Table 8",
+        "section": "3.4, adjacent text",
+        "value": 100
+      },
+      "both_within": {
+        "table": "Table 8",
+        "section": "3.4, adjacent text",
+        "value": 2593
+      },
+      "pairs": {
+        "table": "Table 8",
+        "section": "3.4, adjacent text",
+        "value": 4049
+      },
+      "pair_percent": {
+        "table": "Table 8",
+        "section": "3.4, adjacent text",
+        "value": 64
+      },
+      "islands": {
+        "table": "Table 8",
+        "section": "3.4, adjacent text",
+        "value": 4522
+      },
+      "both_within_all": {
+        "table": "Table 8",
+        "section": "3.4, adjacent text",
+        "value": 2593
+      },
+      "all_percent": {
+        "table": "Table 8",
+        "section": "3.4, adjacent text",
+        "value": 57.3
+      }
+    }
+  },
+  "Table S3": {
+    "document": "supplementary.pdf",
+    "page": 3,
+    "columns": [
+      "Overlap",
+      "Neural greedy",
+      "Neural maximum",
+      "Compact greedy",
+      "Compact maximum"
+    ],
+    "rows": [
+      [
+        "Positive overlap",
+        {
+          "table": "Table S3",
+          "value": 4049
+        },
+        {
+          "table": "Table S3",
+          "value": 4051
+        },
+        {
+          "table": "Table S3",
+          "value": 3955
+        },
+        {
+          "table": "Table S3",
+          "value": 3956
+        }
+      ],
+      [
+        "At least 0.10",
+        {
+          "table": "Table S3",
+          "value": 4047
+        },
+        {
+          "table": "Table S3",
+          "value": 4048
+        },
+        {
+          "table": "Table S3",
+          "value": 3953
+        },
+        {
+          "table": "Table S3",
+          "value": 3954
+        }
+      ],
+      [
+        "At least 0.25",
+        {
+          "table": "Table S3",
+          "value": 3973
+        },
+        {
+          "table": "Table S3",
+          "value": 3973
+        },
+        {
+          "table": "Table S3",
+          "value": 3875
+        },
+        {
+          "table": "Table S3",
+          "value": 3875
+        }
+      ],
+      [
+        "At least 0.50",
+        {
+          "table": "Table S3",
+          "value": 3552
+        },
+        {
+          "table": "Table S3",
+          "value": 3552
+        },
+        {
+          "table": "Table S3",
+          "value": 3483
+        },
+        {
+          "table": "Table S3",
+          "value": 3483
+        }
+      ],
+      [
+        "At least 0.75",
+        {
+          "table": "Table S3",
+          "value": 2425
+        },
+        {
+          "table": "Table S3",
+          "value": 2425
+        },
+        {
+          "table": "Table S3",
+          "value": 2372
+        },
+        {
+          "table": "Table S3",
+          "value": 2372
+        }
+      ]
+    ]
+  },
+  "Table S4": {
+    "document": "supplementary.pdf",
+    "page": 3,
+    "columns": [
+      "Chromosome",
+      "Positive %",
+      "TP",
+      "FP",
+      "FN",
+      "Precision",
+      "Recall",
+      "AP"
+    ],
+    "rows": [
+      [
+        "chr19",
+        {
+          "table": "Table S4",
+          "value": 3.691
+        },
+        {
+          "table": "Table S4",
+          "value": 31049
+        },
+        {
+          "table": "Table S4",
+          "value": 8674
+        },
+        {
+          "table": "Table S4",
+          "value": 12096
+        },
+        {
+          "table": "Table S4",
+          "value": 0.782
+        },
+        {
+          "table": "Table S4",
+          "value": 0.72
+        },
+        {
+          "table": "Table S4",
+          "value": 0.821
+        }
+      ],
+      [
+        "chr20",
+        {
+          "table": "Table S4",
+          "value": 1.275
+        },
+        {
+          "table": "Table S4",
+          "value": 12262
+        },
+        {
+          "table": "Table S4",
+          "value": 2885
+        },
+        {
+          "table": "Table S4",
+          "value": 4038
+        },
+        {
+          "table": "Table S4",
+          "value": 0.81
+        },
+        {
+          "table": "Table S4",
+          "value": 0.752
+        },
+        {
+          "table": "Table S4",
+          "value": 0.849
+        }
+      ],
+      [
+        "chr21",
+        {
+          "table": "Table S4",
+          "value": 1.087
+        },
+        {
+          "table": "Table S4",
+          "value": 6373
+        },
+        {
+          "table": "Table S4",
+          "value": 2984
+        },
+        {
+          "table": "Table S4",
+          "value": 2343
+        },
+        {
+          "table": "Table S4",
+          "value": 0.681
+        },
+        {
+          "table": "Table S4",
+          "value": 0.731
+        },
+        {
+          "table": "Table S4",
+          "value": 0.699
+        }
+      ],
+      [
+        "chr22",
+        {
+          "table": "Table S4",
+          "value": 1.884
+        },
+        {
+          "table": "Table S4",
+          "value": 11116
+        },
+        {
+          "table": "Table S4",
+          "value": 2655
+        },
+        {
+          "table": "Table S4",
+          "value": 3636
+        },
+        {
+          "table": "Table S4",
+          "value": 0.807
+        },
+        {
+          "table": "Table S4",
+          "value": 0.754
+        },
+        {
+          "table": "Table S4",
+          "value": 0.84
+        }
+      ]
+    ]
+  },
+  "Table S5": {
+    "document": "supplementary.pdf",
+    "page": 3,
+    "columns": [
+      "Score interval",
+      "Windows",
+      "Mean score",
+      "Observed positive fraction"
+    ],
+    "rows": [
+      [
+        "[0.0, 0.1)",
+        {
+          "table": "Table S5",
+          "value": 3627562
+        },
+        {
+          "table": "Table S5",
+          "value": 0.005
+        },
+        {
+          "table": "Table S5",
+          "value": 0.0
+        }
+      ],
+      [
+        "[0.1, 0.2)",
+        {
+          "table": "Table S5",
+          "value": 87723
+        },
+        {
+          "table": "Table S5",
+          "value": 0.143
+        },
+        {
+          "table": "Table S5",
+          "value": 0.009
+        }
+      ],
+      [
+        "[0.2, 0.3)",
+        {
+          "table": "Table S5",
+          "value": 46530
+        },
+        {
+          "table": "Table S5",
+          "value": 0.246
+        },
+        {
+          "table": "Table S5",
+          "value": 0.016
+        }
+      ],
+      [
+        "[0.3, 0.4)",
+        {
+          "table": "Table S5",
+          "value": 31875
+        },
+        {
+          "table": "Table S5",
+          "value": 0.347
+        },
+        {
+          "table": "Table S5",
+          "value": 0.022
+        }
+      ],
+      [
+        "[0.4, 0.5)",
+        {
+          "table": "Table S5",
+          "value": 23951
+        },
+        {
+          "table": "Table S5",
+          "value": 0.448
+        },
+        {
+          "table": "Table S5",
+          "value": 0.031
+        }
+      ],
+      [
+        "[0.5, 0.6)",
+        {
+          "table": "Table S5",
+          "value": 20552
+        },
+        {
+          "table": "Table S5",
+          "value": 0.549
+        },
+        {
+          "table": "Table S5",
+          "value": 0.038
+        }
+      ],
+      [
+        "[0.6, 0.7)",
+        {
+          "table": "Table S5",
+          "value": 19197
+        },
+        {
+          "table": "Table S5",
+          "value": 0.65
+        },
+        {
+          "table": "Table S5",
+          "value": 0.052
+        }
+      ],
+      [
+        "[0.7, 0.8)",
+        {
+          "table": "Table S5",
+          "value": 20440
+        },
+        {
+          "table": "Table S5",
+          "value": 0.751
+        },
+        {
+          "table": "Table S5",
+          "value": 0.071
+        }
+      ],
+      [
+        "[0.8, 0.9)",
+        {
+          "table": "Table S5",
+          "value": 25723
+        },
+        {
+          "table": "Table S5",
+          "value": 0.853
+        },
+        {
+          "table": "Table S5",
+          "value": 0.101
+        }
+      ],
+      [
+        "[0.9, 1.0]",
+        {
+          "table": "Table S5",
+          "value": 128595
+        },
+        {
+          "table": "Table S5",
+          "value": 0.982
+        },
+        {
+          "table": "Table S5",
+          "value": 0.565
+        }
+      ]
+    ]
+  },
+  "Table S7": {
+    "document": "supplementary.pdf",
+    "page": 4,
+    "columns": [
+      "Chromosome",
+      "Neural P",
+      "Neural R",
+      "Neural F1",
+      "Compact P",
+      "Compact R",
+      "Compact F1"
+    ],
+    "rows": [
+      [
+        "chr19",
+        {
+          "table": "Table S7",
+          "value": 0.648
+        },
+        {
+          "table": "Table S7",
+          "value": 0.779
+        },
+        {
+          "table": "Table S7",
+          "value": 0.708
+        },
+        {
+          "table": "Table S7",
+          "value": 0.676
+        },
+        {
+          "table": "Table S7",
+          "value": 0.768
+        },
+        {
+          "table": "Table S7",
+          "value": 0.719
+        }
+      ],
+      [
+        "chr20",
+        {
+          "table": "Table S7",
+          "value": 0.679
+        },
+        {
+          "table": "Table S7",
+          "value": 0.796
+        },
+        {
+          "table": "Table S7",
+          "value": 0.733
+        },
+        {
+          "table": "Table S7",
+          "value": 0.699
+        },
+        {
+          "table": "Table S7",
+          "value": 0.783
+        },
+        {
+          "table": "Table S7",
+          "value": 0.739
+        }
+      ],
+      [
+        "chr21",
+        {
+          "table": "Table S7",
+          "value": 0.552
+        },
+        {
+          "table": "Table S7",
+          "value": 0.729
+        },
+        {
+          "table": "Table S7",
+          "value": 0.628
+        },
+        {
+          "table": "Table S7",
+          "value": 0.603
+        },
+        {
+          "table": "Table S7",
+          "value": 0.709
+        },
+        {
+          "table": "Table S7",
+          "value": 0.652
+        }
+      ],
+      [
+        "chr22",
+        {
+          "table": "Table S7",
+          "value": 0.694
+        },
+        {
+          "table": "Table S7",
+          "value": 0.829
+        },
+        {
+          "table": "Table S7",
+          "value": 0.755
+        },
+        {
+          "table": "Table S7",
+          "value": 0.723
+        },
+        {
+          "table": "Table S7",
+          "value": 0.799
+        },
+        {
+          "table": "Table S7",
+          "value": 0.759
+        }
+      ],
+      [
+        "Macro",
+        {
+          "table": "Table S7",
+          "value": 0.643
+        },
+        {
+          "table": "Table S7",
+          "value": 0.783
+        },
+        {
+          "table": "Table S7",
+          "value": 0.706
+        },
+        {
+          "table": "Table S7",
+          "value": 0.675
+        },
+        {
+          "table": "Table S7",
+          "value": 0.765
+        },
+        {
+          "table": "Table S7",
+          "value": 0.717
+        }
+      ],
+      [
+        "Pooled",
+        {
+          "table": "Table S7",
+          "value": 0.651
+        },
+        {
+          "table": "Table S7",
+          "value": 0.785
+        },
+        {
+          "table": "Table S7",
+          "value": 0.712
+        },
+        {
+          "table": "Table S7",
+          "value": 0.68
+        },
+        {
+          "table": "Table S7",
+          "value": 0.77
+        },
+        {
+          "table": "Table S7",
+          "value": 0.722
+        }
+      ]
+    ]
+  },
+  "Table S8": {
+    "document": "supplementary.pdf",
+    "page": 4,
+    "columns": [
+      "Length",
+      "Recovered",
+      "Islands",
+      "Recall"
+    ],
+    "rows": [
+      [
+        "Below 250 bp",
+        {
+          "table": "Table S8",
+          "value": 349
+        },
+        {
+          "table": "Table S8",
+          "value": 614
+        },
+        {
+          "table": "Table S8",
+          "value": 0.568
+        }
+      ],
+      [
+        "250–349 bp",
+        {
+          "table": "Table S8",
+          "value": 699
+        },
+        {
+          "table": "Table S8",
+          "value": 864
+        },
+        {
+          "table": "Table S8",
+          "value": 0.809
+        }
+      ],
+      [
+        "350–499 bp",
+        {
+          "table": "Table S8",
+          "value": 722
+        },
+        {
+          "table": "Table S8",
+          "value": 757
+        },
+        {
+          "table": "Table S8",
+          "value": 0.954
+        }
+      ],
+      [
+        "500–999 bp",
+        {
+          "table": "Table S8",
+          "value": 1371
+        },
+        {
+          "table": "Table S8",
+          "value": 1379
+        },
+        {
+          "table": "Table S8",
+          "value": 0.994
+        }
+      ],
+      [
+        "1,000 bp and above",
+        {
+          "table": "Table S8",
+          "value": 908
+        },
+        {
+          "table": "Table S8",
+          "value": 908
+        },
+        {
+          "table": "Table S8",
+          "value": 1.0
+        }
+      ]
+    ]
+  }
+}

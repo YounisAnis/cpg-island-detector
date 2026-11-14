@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: cpg-island-detector
+    runtime: python
+    plan: free
+    region: singapore
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /api/v1/health
+    autoDeployTrigger: commit
+    envVars:
+      - key: MAX_BASES
+        value: "500000"
+      - key: MAX_RECORDS
+        value: "10"
+      - key: MAX_BODY_BYTES
+        value: "1048576"
+      - key: MAX_SECONDS
+        value: "25"

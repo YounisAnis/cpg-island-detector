@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Detect · CpG Island Detector</title><link rel="stylesheet" href="/css/style.css"><script type="module" src="/js/main.js"></script></head>
+<body><header><div class="bar"><a class="brand" href="/"><span class="mark" aria-hidden="true"></span>CpG Island Detector</a><nav aria-label="Pages"><a aria-current="page" href="/">Detect</a><a href="/results.html">Results</a><a href="/about.html">Method &amp; limits</a></nav></div></header>
+<main><div class="heading"><h1>Detect CpG islands</h1><p>Scan a DNA sequence with Compact LightGBM to find predicted regions and inspect window scores.</p></div>
+<section class="panel input-panel"><div class="section-head"><h2>Sequence input</h2><label class="quiet file">Upload FASTA<input id="file" type="file" accept=".fa,.fasta,.fna,.txt"></label></div>
+<label for="input">DNA sequence or FASTA</label><textarea id="input" rows="6" spellcheck="false" placeholder="Paste DNA or a FASTA record beginning with &gt; here"></textarea>
+<div class="meta"><span>Forward strand only</span><output id="counter">0 bases</output></div>
+<div class="actions"><div><label for="example">Real example</label><select id="example"><option value="">Choose an hg38 sequence</option></select></div><div class="buttons"><button id="clear" type="button">Clear</button><button class="primary" id="run" disabled>Run detection</button></div></div>
+<div id="status" class="status" role="status" aria-live="polite">Connecting to server…</div></section>
+<section id="output" hidden><div class="section-head"><h2>Detection results</h2><label id="chooser" hidden>Record <select id="record"></select></label></div>
+<div id="summary" class="stats"></div>
+<section class="panel"><div class="section-head"><h2>Window scores</h2><span class="muted">0-based, half-open coordinates</span></div><div id="track"></div><p class="note">Score model ka output hai, probability ya confidence nahi.</p></section>
+<section class="panel"><div class="section-head"><h2>Predicted regions</h2><div class="buttons"><button data-export="csv">CSV</button><button data-export="bed">BED</button><button data-export="json">JSON</button></div></div>
+<div id="regions" class="scroll"></div></section></section></main></body></html>

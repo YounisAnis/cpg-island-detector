@@ -1,0 +1,4 @@
+* text=auto
+model/compact82_booster.txt -text
+tests/fixtures/* -text
+scripts/export_booster.py -text

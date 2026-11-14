@@ -1,0 +1,12 @@
+02/
+04_Dataset/
+.venv/
+__pycache__/
+.pytest_cache/
+*.py[cod]
+*.joblib
+*.h5
+*.ipynb
+hg38*.fa
+hg38*.fa.fai
+.env
