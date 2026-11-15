@@ -1,71 +1,75 @@
-# CpG Island Detector — frontend report
+# CpG Island Detector: frontend report
 
-## File ke hisaab se tabdeeliyan
+## What changed, file by file
 
-| Files | Tabdeeli |
+| Files | Change |
 | --- | --- |
-| `static/index.html` | Sequence editor, FASTA upload, chaar hg38 examples, server se milne wale scan parameters, aur results ki jagah. |
-| `static/about.html`, `static/js/about.js` | Chaar marhalon mein method, FAQ, coordinate convention, benchmark ki hudood, team aur manuscript title. |
-| `static/results.html`, `static/js/results.js` | Benchmark tables ke mobile labels, charts aur loading/error states. Tables ke data aur rounding pehle wali hain. |
-| `static/js/main.js`, `static/js/api.js` | Original detect request ke saath example selection, file reading, loading, validation aur timeout messages. Naya input aane par purana result hat jata hai. |
-| `static/js/result-panel.js` | Har record ka verdict, exact peak window score, threshold marker, input preview, paged sequence view aur copy/download actions. |
-| `static/js/table.js`, `static/js/track.js` | Chhoti screen ke liye track aur sortable region table. Region select karne par us ke bases aur track interval highlight hote hain. |
-| `static/css/style.css`, `static/css/results-panel.css` | Rang, type, layout, contrast, keyboard focus, loading aur reduced-motion rules. |
-| `static/js/site.js`, `static/js/site-config.js` | Theme preference, mobile navigation, footer, credits aur project links. |
-| `static/favicon.svg`, `static/helix.svg`, `static/icons.svg`, `static/fonts/` | Local DNA illustration, favicon, interface icons aur OFL license ke saath Source Sans 3 aur Source Code Pro. |
+| `static/index.html` | Sequence editor, FASTA upload, four hg38 examples, scan settings that come from the server, and a place for results. |
+| `static/about.html`, `static/js/about.js` | Method in four steps, FAQ, coordinate rules, limits of the benchmark, team, and manuscript title. |
+| `static/results.html`, `static/js/results.js` | Labels for benchmark tables on mobile, charts, and loading/error states. Table data and rounding are the same as before. |
+| `static/js/main.js`, `static/js/api.js` | Example selection, file reading, loading, input checks, and timeout messages. The original detect request is kept. When new input comes, the old result is cleared. |
+| `static/js/result-panel.js` | For each record: verdict, exact peak window score, threshold marker, input preview, paged sequence view, and copy/download buttons. |
+| `static/js/table.js`, `static/js/track.js` | Track and sortable region table for small screens. Selecting a region highlights its bases and its interval on the track. |
+| `static/css/style.css`, `static/css/results-panel.css` | Colors, fonts, layout, contrast, keyboard focus, loading, and reduced-motion rules. |
+| `static/js/site.js`, `static/js/site-config.js` | Theme choice, mobile menu, footer, credits, and project links. |
+| `static/favicon.svg`, `static/helix.svg`, `static/icons.svg`, `static/fonts/` | Local DNA picture, favicon, icons, and Source Sans 3 and Source Code Pro fonts (with the OFL license). |
 
-## Design aur science
+## Design and science
 
-- Navy aur cyan detector ke controls ke liye hain. Mint predicted regions ko aur amber no-region ya caution state ko dikhata hai. Verdict ki apni heading aur nishan bhi hain.
-- System theme pehle apply hoti hai. Toggle ka faisla browser storage mein save hota hai jab storage dastiyab ho. Bases, scores aur coordinates monospace mein hain.
-- Gauge chune huay record ke sab se zyada score wale **window** ki asal returned value dikhata hai. Marker server ke hit threshold par hai. Paper Compact ke dense scan ki probability calibration report nahin karta.
-- Island ka faisla server ki region list se aata hai. Misal ke taur par aik 200 bp window hit ho sakta hai, magar us ke aik hi centre se 150 bp ka region nahin banta.
-- Agar tamam windows skip ho jaayen to panel batata hai ke scoring mumkin nahin hui. Multi-FASTA mein har record ka score, sequence aur verdict alag dekha ja sakta hai.
-- Coordinates har input record se shuru hote hain. `[start, end)` mein start shamil aur end bahar hai. Sequence viewer lambi sequences ko chhote hisson mein dikhata hai. JSON mein poora API response milta hai.
-- Keyboard se navigation, example selection, region sorting aur selection mumkin banaye gaye hain. Motion preference ka ehtiram hota hai. Is redesign ke liye koi CDN ya nayi Python dependency darkar nahin.
+- Navy and cyan are for the detector controls. Mint shows predicted regions. Amber shows "no region" or a warning. The verdict also has its own heading and symbol, so color is not the only clue.
+- The system theme is applied first. The theme toggle is saved in browser storage when storage is available. Bases, scores and coordinates use a monospace font.
+- The gauge shows the real value of the highest-scoring **window** of the selected record. The marker sits at the server's hit threshold. The paper does not report probability calibration for the dense Compact scan.
+- The island decision comes from the server's region list. For example, one 200 bp window can be a hit, but it still may not form a 150 bp region with the same centre.
+- If all windows are skipped, the panel says scoring was not possible. In a multi-FASTA file, each record has its own score, sequence and verdict.
+- Coordinates start from the beginning of each input record. In `[start, end)`, start is included and end is not. The sequence viewer shows long sequences in small pages. The JSON download is the full API response.
+- Keyboard use is supported for navigation, example selection, sorting and selecting regions. Motion preferences are respected. No CDN and no new Python package is needed for this redesign.
 
-## Request ka raasta
+## Request path
 
-`index.html` se `main.js` input leta hai. `api.js` asal text aur `include_scores: true` ko `POST /api/v1/detect` par bhejta hai. FastAPI records parse karta hai, eligible windows ka feature matrix banata hai aur Compact LightGBM booster se scores leta hai. Backend hit windows ko merge karke record-relative regions wapas bhejta hai. `result-panel.js` isi response se display banata hai. Pehle track par chhoti rangin patti `track.js` ka `rect.region` thi. Ab us ke saath verdict, score gauge, interval table aur bases ka view bhi hai.
+`main.js` takes the input from `index.html`. `api.js` sends the original text and `include_scores: true` to `POST /api/v1/detect`. FastAPI reads the records, builds the feature matrix for the eligible windows, and gets scores from the Compact LightGBM booster. The backend merges hit windows and returns regions relative to each record. `result-panel.js` builds the display from that same response.
 
-## Tasdeeq
+Before, the track only showed a small colored bar (`rect.region` from `track.js`). Now it also has the verdict, score gauge, interval table and base view.
 
-Backend, model, scientific fixtures, static benchmark/example data, dependencies aur Render configuration ke file fingerprints pehle wale snapshot se milte hain. JavaScript modules ka syntax check pass hua. Yeh source-level checks hain. Aap ki pehli localhost run ke liye browser, runtime parity, Lighthouse aur Render startup ki tasdeeq baqi hai.
+## Checks done
 
-| Built-in example | Repository ke reference mein regions | Record-relative intervals |
+File fingerprints for the backend, model, science fixtures, static benchmark/example data, dependencies and Render settings match the earlier snapshot. The JavaScript modules passed a syntax check. These are source-level checks only. Still pending for your first localhost run: browser check, runtime parity, Lighthouse, and Render startup.
+
+| Built-in example | Regions in repo reference | Intervals (relative to record) |
 | --- | ---: | --- |
-| Positive test window, 200 bp | 0 | — |
-| Negative test window, 200 bp | 0 | — |
+| Positive test window, 200 bp | 0 | none |
+| Negative test window, 200 bp | 0 | none |
 | Chr21, 100 kb | 1 | `[50000, 50250)` |
 | Chr21, 500 kb | 2 | `[250000, 250250)`, `[413450, 413600)` |
 
-Teen mazeed 200 bp records aur un ke exact scores archived test fixtures se liye gaye. In ke zero-based fixture rows 1, 7 aur 29189 hain. Row 7 par aik hit aur zero regions hain. Row 29189 ke 17 ambiguous bases ke bawajood us ka window score hua tha. Asal frontend ka ZIP, reference requests aur expected records temporary backup folder mein hain. In references ko nayi inference run ka natija samajhna durust nahin hoga.
+Three more 200 bp records and their exact scores come from the archived test fixtures. Their zero-based rows are 1, 7 and 29189. Row 7 has one hit window and zero regions. Row 29189 has 17 ambiguous bases, but its window still got a score.
 
-## Localhost par pehli jaanch
+The original frontend ZIP, reference requests and expected records are in a temporary backup folder. Do not treat these references as the result of a new inference run.
 
-Repository ki root se PowerShell mein server shuru karein.
+## First check on localhost
+
+From the repo root, start the server in PowerShell:
 
 ```powershell
 .\.venv\Scripts\python.exe -m uvicorn app.main:app
 ```
 
-Terminal mein diya hua local address kholein. Pehle Chr21 ka 100 kb example chala kar table aur highlighted bases ka interval milayein. Doosre terminal mein existing smoke runner se chaaron examples ke regions verify kar sakte hain.
+Open the local address shown in the terminal. First run the Chr21 100 kb example and compare the table and highlighted bases with the interval. In a second terminal, you can verify all four examples with the existing smoke runner:
 
 ```powershell
 .\.venv\Scripts\python.exe scripts/smoke.py http://127.0.0.1:8000
 ```
 
-Layout ke liye 360×740, 390×844, 768×1024, 1024×768, 1366×768, 1920×1080 aur 2560×1440 par detector, multi-record results aur benchmark tables dekh lein.
+For layout, check the detector page, multi-record results and benchmark tables at 360×740, 390×844, 768×1024, 1024×768, 1366×768, 1920×1080 and 2560×1440.
 
-## Credits aur scope
+## Credits and scope
 
-`static/js/site-config.js` mein Younis Anis aur Dr. Muhammad Shujaat ke diye huay email addresses maujood hain. Co-supervisor ka naam/email aur manuscript ke authors, venue aur public URL jab mil jaayen to isi file mein dein. Khali entries page par chhupi rehti hain.
+`static/js/site-config.js` has the email addresses given for Younis Anis and Dr. Muhammad Shujaat. When you have the co-supervisor's name/email and the manuscript's authors, venue and public URL, add them to the same file. Empty entries stay hidden on the page.
 
-API har record ka GC content, CpG observed/expected ratio ya methylation measurement return nahin karti. UI mein in ke liye koi andaza nahin lagaya gaya. Paper ka jo title repository mein tha wahi citation mein diya gaya hai.
+The API does not return GC content, CpG observed/expected ratio, or methylation measurements for each record. The UI makes no guesses for these. The paper title in the citation is the one that was already in the repo.
 
-## Git aur Render
+## Git and Render
 
-Local verification ke baad ye commands chalayein. `git add .` aap ki original prompt file bhi stage karega agar woh repository mein abhi untracked hai.
+After local checks, run these commands. `git add .` will also stage your original prompt file if it is still untracked in the repo.
 
 ```powershell
 git status
@@ -74,4 +78,4 @@ git commit -m "Frontend redesign: bioinformatics UI, responsive layout, clear re
 git push origin main
 ```
 
-Push ke baad Render deploy logs mein `model loaded, sha256 ok` aur `/api/v1/health` ka successful response dekhein.
+After the push, check the Render deploy logs for `model loaded, sha256 ok` and a successful response from `/api/v1/health`.
