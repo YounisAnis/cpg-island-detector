@@ -1,4 +1,42 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Results · CpG Island Detector</title><link rel="stylesheet" href="/css/style.css"><script type="module" src="/js/results.js"></script></head><body>
-<header><div class="bar"><a class="brand" href="/"><span class="mark" aria-hidden="true"></span>CpG Island Detector</a><nav aria-label="Pages"><a href="/">Detect</a><a aria-current="page" href="/results.html">Results</a><a href="/about.html">Method &amp; limits</a></nav></div></header>
-<main><div class="heading"><h1>Benchmark results</h1><p>Compact LightGBM and the eight-channel neural detector on held-out human chromosomes. The live detector runs Compact LightGBM. Neural results are shown for comparison.</p></div><div id="results" aria-live="polite">Loading evaluation…</div></main></body></html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="dark light">
+  <title>Benchmark results · CpG Island Detector</title>
+  <meta name="description" content="Compare window classification, region recovery and boundary errors for two CpG island detectors on human hg38.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Benchmark results · CpG Island Detector">
+  <meta property="og:description" content="Compare window classification, region recovery and boundary errors for two CpG island detectors on human hg38.">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="/css/style.css">
+  <script type="module" src="/js/site.js"></script>
+  <script type="module" src="/js/results.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="bar">
+      <a class="brand" href="/"><img class="brand-mark" src="/favicon.svg" alt="" width="38" height="38"><span class="brand-name" data-project>CpG Island Detector</span></a>
+      <nav class="site-nav" id="site-nav" aria-label="Main navigation">
+        <a href="/">Detector</a>
+        <a href="/results.html" aria-current="page">Benchmarks</a>
+        <a href="/about.html">Method &amp; limits</a>
+      </nav>
+      <button class="theme-toggle" type="button" aria-label="Switch theme" title="Switch theme"><svg class="icon" aria-hidden="true" focusable="false"><use href="/icons.svg#sun"></use></svg></button>
+      <button class="nav-toggle" type="button" aria-label="Open navigation" aria-controls="site-nav" aria-expanded="false"><svg class="icon" aria-hidden="true" focusable="false"><use href="/icons.svg#menu"></use></svg></button>
+    </div>
+  </header>
+  <main class="shell" id="main">
+    <div class="page-heading"><p class="eyebrow">Model evaluation</p><h1>Benchmark results</h1><p>Compare Compact LightGBM with the eight-channel neural detector. Region evaluation uses human hg38 chromosomes 19–22 and UCSC cpgIslandExt annotations. The live detector runs Compact LightGBM.</p></div>
+    <div id="results" aria-busy="true"><p role="status">Loading evaluation…</p></div>
+  </main>
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span><strong data-project>CpG Island Detector</strong><span data-attribution></span></span>
+      <div class="footer-links"><a href="/about.html#team">Research team</a><a href="/about.html#citation" data-citation-link hidden>Cite this tool</a><a data-repository hidden>GitHub</a></div>
+    </div>
+  </footer>
+</body>
+</html>

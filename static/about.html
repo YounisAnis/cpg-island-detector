@@ -1,10 +1,118 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Method & limits · CpG Island Detector</title><link rel="stylesheet" href="/css/style.css"><script type="module" src="/js/about.js"></script></head><body>
-<header><div class="bar"><a class="brand" href="/"><span class="mark" aria-hidden="true"></span>CpG Island Detector</a><nav aria-label="Pages"><a href="/">Detect</a><a href="/results.html">Results</a><a aria-current="page" href="/about.html">Method &amp; limits</a></nav></div></header>
-<main><div class="heading"><h1>Method &amp; limits</h1><p>Research use only. Medical diagnosis, treatment and clinical decisions are outside this tool’s scope.</p></div>
-<section class="panel prose"><h2>From DNA to regions</h2><p id="algorithm"></p><p>This model processes overlapping di- and trinucleotides, GC content and observed-to-expected values of CpG islands. Everything except adenine, cytosine, guanine and thymine nucleotides is considered an unknown letter. Such words are removed from the numerator, but the denominator considers everything.</p><p>Forward references sequences only are scanned. Output positions are 0-based and half open according to each record's reference. Average and maximal score values are determined by windows from hit regions.</p><p class="note">Score value is a raw output of the model and not a probability value.</p></section>
-<section class="panel prose"><h2>What the benchmark supports</h2><p>Selection of the model was done using UCSC hg38 and cpgIslandExt Annotation. Threshold selected was tested on Human Sequence. Unvalidation of performance in any other species or genome assemblies exists. Input in reverse complement may produce different results.</p>
-<p>Strict F1 Score favored the Compact LightGBM model. Neural model detected more short reference islands. Errors in boundary on the Results webpage refer to matches of detected predictions with the reference. Pasted sequences have no predicted coordinates.</p>
-<p>Independence of the test set during development was not shown. Training procedures for the main neural checkpoint are described insufficiently. Calibration of neural dense-scan is provided in Supplement S5. Calibration of the compact LightGBM dense-scan has not been published.</p></section>
-<section class="panel prose"><h2>Request limits &amp; privacy</h2><p id="limits"></p><p>Processing is done on sequences using memory. Logs from applications do not contain any sequences and use identifiers only. Waiting for free instance could be observed during requests.</p></section>
-<section class="panel prose"><h2>Citation</h2><p><cite>A Machine Learning Approach to CpG Island Detection Across Entire Chromosomes</cite></p><p>Authors and venue · Not Included Yet</p></section></main></body></html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="dark light">
+  <title>Method and limits · CpG Island Detector</title>
+  <meta name="description" content="Read how Compact LightGBM scores DNA windows, how regions are called, and what the human hg38 benchmark supports.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Method and limits · CpG Island Detector">
+  <meta property="og:description" content="Read how Compact LightGBM scores DNA windows, how regions are called, and what the human hg38 benchmark supports.">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="/css/style.css">
+  <script type="module" src="/js/site.js"></script>
+  <script type="module" src="/js/about.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="bar">
+      <a class="brand" href="/"><img class="brand-mark" src="/favicon.svg" alt="" width="38" height="38"><span class="brand-name" data-project>CpG Island Detector</span></a>
+      <nav class="site-nav" id="site-nav" aria-label="Main navigation">
+        <a href="/">Detector</a>
+        <a href="/results.html">Benchmarks</a>
+        <a href="/about.html" aria-current="page">Method &amp; limits</a>
+      </nav>
+      <button class="theme-toggle" type="button" aria-label="Switch theme" title="Switch theme"><svg class="icon" aria-hidden="true" focusable="false"><use href="/icons.svg#sun"></use></svg></button>
+      <button class="nav-toggle" type="button" aria-label="Open navigation" aria-controls="site-nav" aria-expanded="false"><svg class="icon" aria-hidden="true" focusable="false"><use href="/icons.svg#menu"></use></svg></button>
+    </div>
+  </header>
+<main id="main" class="shell">
+  <div class="page-heading">
+    <h1>Method &amp; limits</h1>
+    <p>Follow a submitted DNA sequence from its first window to its predicted CpG island boundaries.</p>
+  </div>
+  <section class="panel prose" aria-labelledby="workflow-title">
+    <h2 id="workflow-title">From sequence to island</h2>
+    <div class="method-grid">
+      <article>
+        <svg class="icon" aria-hidden="true"><use href="/icons.svg#dna"></use></svg>
+        <h3>Read each record</h3>
+        <p>Submit plain DNA or FASTA. The detector scans each record independently, along the strand you supply.</p>
+      </article>
+      <article>
+        <svg class="icon" aria-hidden="true"><use href="/icons.svg#windows"></use></svg>
+        <h3>Scan full windows</h3>
+        <p id="window-method">The scan advances in overlapping windows and skips windows with too many ambiguous bases.</p>
+      </article>
+      <article>
+        <svg class="icon" aria-hidden="true"><use href="/icons.svg#signal"></use></svg>
+        <h3>Score each window</h3>
+        <p>Compact LightGBM uses dinucleotide and trinucleotide frequencies, GC content and the observed-to-expected CpG ratio. <span id="hit-method">The model score determines whether a window is a hit.</span></p>
+      </article>
+      <article>
+        <svg class="icon" aria-hidden="true"><use href="/icons.svg#regions"></use></svg>
+        <h3>Call island regions</h3>
+        <p id="region-method">The scan groups nearby hits, takes the centres of the first and last hit windows as boundaries and applies a minimum region length.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="panel prose" aria-labelledby="faq-title">
+    <h2 id="faq-title">How to use the detector</h2>
+    <div class="faq">
+      <details>
+        <summary>What is a CpG?</summary>
+        <p>A CpG is a cytosine (C) immediately followed by a guanine (G) on the same DNA strand. The detector scores patterns across whole windows of sequence and reports islands where nearby hit windows form a qualifying region.</p>
+      </details>
+      <details>
+        <summary>Which example should I start with?</summary>
+        <p>Select the chromosome 21, 100 kb example and run detection. Select a reported region to see it on the track. The two 200 bp examples each illustrate a single window score.</p>
+      </details>
+      <details>
+        <summary>How are ambiguous bases handled?</summary>
+        <p>The detector accepts ASCII letters in either case. It treats letters other than A, C, G and T as ambiguous. Within eligible windows, only unambiguous di- and trinucleotides contribute to their frequency counts. The denominator includes all possible starting positions for that word length.</p>
+      </details>
+      <details>
+        <summary>Why can a high score yield no island?</summary>
+        <p>The score applies to one window. A region needs hit windows whose centres span the minimum region length. A single hit has no centre-to-centre span. Region mean and maximum scores summarize only the hit windows in that region.</p>
+      </details>
+      <details>
+        <summary>What do the coordinates refer to?</summary>
+        <p>Positions start at zero in each submitted record. The start is included and the end is excluded. FASTA headers label records. The detector does not align input to a genome.</p>
+      </details>
+      <details>
+        <summary>What are the submission limits?</summary>
+        <p id="limits" aria-live="polite">Loading the current server limits…</p>
+        <p>The application processes submitted sequences in server memory. Its application code does not write sequence text to logs. The first request may take longer while a sleeping instance starts.</p>
+      </details>
+    </div>
+  </section>
+
+  <section class="panel prose" aria-labelledby="benchmark-title">
+    <h2 id="benchmark-title">What the benchmark supports</h2>
+    <p>The study compared predicted regions with the UCSC <i>cpgIslandExt</i> annotation on human hg38. Strict region F1 favoured Compact LightGBM, the live detector. The neural model recovered more short reference islands. Reported boundary errors apply to predictions paired with an annotated region.</p>
+    <p>A window score is a model output. The study reports neural dense-scan calibration in Supplement S5. It provides no such calibration for Compact LightGBM. An uploaded sequence alone supplies no reference labels for measuring accuracy or DNA methylation data.</p>
+    <p>Performance on other species or assemblies remains unvalidated. Scanning the reverse complement can give different predictions. The study did not establish test-set independence during development, and the training details for the main neural checkpoint are incomplete.</p>
+    <p class="note">For research use only. Predictions depend on the training data and do not provide clinical advice.</p>
+  </section>
+
+  <section class="panel prose" aria-labelledby="team-title" id="team" hidden>
+    <h2 id="team-title">Research team</h2>
+    <div class="credits-grid" id="team-members"></div>
+  </section>
+  <section class="panel prose" aria-labelledby="cite-title" id="citation" hidden>
+    <h2 id="cite-title">Cite this tool</h2>
+    <p>Project manuscript</p>
+    <p id="paper-citation"></p>
+  </section>
+</main>
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span><strong data-project>CpG Island Detector</strong><span data-attribution></span></span>
+      <div class="footer-links"><a href="/about.html#team">Research team</a><a href="/about.html#citation" data-citation-link hidden>Cite this tool</a><a data-repository hidden>GitHub</a></div>
+    </div>
+  </footer>
+</body>
+</html>

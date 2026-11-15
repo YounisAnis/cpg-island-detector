@@ -5,7 +5,7 @@ export function svgNode(tag, attrs = {}, text = "") {
   return node;
 }
 export function renderTrack(host, record, threshold, select) {
-  const width = Math.max(410, host.clientWidth), left = 54, right = width - 24, plot = right-left;
+  const width = Math.max(220, host.clientWidth), left = 54, right = width - 24, plot = right-left;
   const x = bp => left + bp / record.length * plot, y = score => 116 - score * 88;
   const svg = svgNode("svg",{viewBox:`0 0 ${width} 198`,role:"img","aria-label":"Window scores and predicted CpG island regions"});
   const add = (tag, attrs, text) => svg.appendChild(svgNode(tag,attrs,text));

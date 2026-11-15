@@ -4,8 +4,19 @@ function node(tag,text="",cls=""){const n=document.createElement(tag);n.textCont
 function panel(title){const s=node("section","","panel");s.append(node("h2",title));host.append(s);return s;}
 function tableBox(s,cols,rows){
   const scroll=node("div","","scroll"), t=node("table"), head=t.createTHead().insertRow(), body=t.createTBody();
-  for(const col of cols)head.append(node("th",col));
-  for(const r of rows){const tr=body.insertRow();r.forEach(v=>tr.insertCell().textContent=v??"—");}
+  for(const col of cols){
+    const header=node("th",col);
+    header.scope="col";
+    head.append(header);
+  }
+  for(const r of rows){
+    const tr=body.insertRow();
+    r.forEach((v,i)=>{
+      const cell=tr.insertCell();
+      cell.dataset.label=cols[i];
+      cell.textContent=v??"—";
+    });
+  }
   scroll.append(t);s.append(scroll);
 }
 const decimal=v=>typeof v==="number"&&!Number.isInteger(v)?v.toFixed(3):v;
@@ -68,4 +79,8 @@ async function render(){
   s.append(node("p","Left bar · Neural   /   Right bar · Compact LightGBM","legend"));
   sourced(s,"Neural · Supplement Table S8. Compact LightGBM · "+derived+".");
 }
-render().catch(()=>{host.textContent="Evaluation files could not be loaded.";});
+render().catch(()=>{
+  const error=node("p","The benchmark files could not be loaded. Refresh this page to try again.");
+  error.setAttribute("role","alert");
+  host.replaceChildren(error);
+}).finally(()=>host.setAttribute("aria-busy","false"));
